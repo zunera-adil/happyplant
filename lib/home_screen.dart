@@ -1,5 +1,3 @@
-// ignore_for_file: depend_on_referenced_packages
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,12 +14,17 @@ class HomeScreen extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: kBackgroundGradient,
         ),
-        child: Column(children: [
-          Text(
-            "Plant Moisture Status",
-            style: TextStyle(),
-          ),
-        ]),
+        child: Column(
+          children: [
+            Text(
+              "Plant Moisture Status",
+              style: TextStyle(
+                fontSize: 10.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
