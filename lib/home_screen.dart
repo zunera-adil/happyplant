@@ -30,8 +30,9 @@
 //   }
 // }
 
-
 import 'package:flutter/material.dart';
+import 'package:happyplant/color.dart';
+import 'package:happyplant/components/button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,7 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void _refreshMoistureLevel() {
     setState(() {
       // Simulate getting the moisture level
-      _moistureLevel = (50 + (50 * (DateTime.now().millisecondsSinceEpoch % 10) / 10));
+      _moistureLevel =
+          (50 + (50 * (DateTime.now().millisecondsSinceEpoch % 10) / 10));
     });
   }
 
@@ -67,40 +69,67 @@ class _HomeScreenState extends State<HomeScreen> {
     // String imagePath = isHappy ? 'assets/happy_plant.png' : 'assets/sad_plant.png';
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Plant Moisture Detector'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(blockSizeHorizontal * 4), // Adjust padding dynamically
+      // appBar: AppBar(
+      //   title: Padding(
+      //     padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      //     child: Text('Plant Moisture Detector',
+      //         style: TextStyle(
+      //           fontSize: blockSizeHorizontal * 5.5,
+      //           color: Colors.green,
+      //           fontWeight: FontWeight.bold,
+      //         )),
+      //   ),
+      // ),
+      body: Container(
+        padding: EdgeInsets.all(blockSizeHorizontal * 4),
+        decoration: BoxDecoration(
+          gradient: kBackgroundGradient,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Current Moisture Level:',
-              style: TextStyle(fontSize: blockSizeHorizontal * 6), // Adjust font size dynamically
-            ),
-            SizedBox(height: blockSizeVertical * 2), // Adjust spacing dynamically
-            Text(
-              '${_moistureLevel.toStringAsFixed(2)}%',
-              style: TextStyle(fontSize: blockSizeHorizontal * 12, fontWeight: FontWeight.bold), // Adjust font size dynamically
+              'Plant Moisture Detector',
+              style: TextStyle(
+                  fontSize: blockSizeHorizontal * 6,
+                  color: Colors.white), // Adjust font size dynamically
             ),
             SizedBox(height: blockSizeVertical * 2),
+            Text(
+              'Current Moisture Level:',
+              style: TextStyle(
+                  fontSize: blockSizeHorizontal * 6,
+                  color: Colors.white), // Adjust font size dynamically
+            ),
+            SizedBox(
+                height: blockSizeVertical * 2), // Adjust spacing dynamically
+            Text(
+              '${_moistureLevel.toStringAsFixed(2)}%',
+              style: TextStyle(
+                  fontSize: blockSizeHorizontal * 12,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white), // Adjust font size dynamically
+            ),
+            SizedBox(height: blockSizeVertical * 2),
+            Container(
+              width: 200,
+              height: 100,
+              color: Colors.red, // Set container color
+            ),
+            SizedBox(height: blockSizeVertical * 2),
+
             // Image.asset(
             //   imagePath,
             //   height: blockSizeVertical * 30, // Adjust image size dynamically
             // ),
             // SizedBox(height: blockSizeVertical * 4),
-            ElevatedButton(
-              onPressed: _refreshMoistureLevel,
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(
-                  horizontal: blockSizeHorizontal * 8, // Adjust padding dynamically
-                  vertical: blockSizeVertical * 2, // Adjust padding dynamically
-                ),
-                textStyle: TextStyle(fontSize: blockSizeHorizontal * 4.5), // Adjust font size dynamically
-              ),
-              child: const Text('Refresh'),
-            ),
+
+            CustomPrimaryButton(
+              onTap: _refreshMoistureLevel,
+              text: 'Refresh',
+              height: 10,
+              width: 30,
+            )
           ],
         ),
       ),

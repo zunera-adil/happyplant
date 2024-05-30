@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+import 'package:happyplant/welcomescreen.dart';
 
 void main() {
   runApp(const HappyPlant());
@@ -10,9 +10,8 @@ class HappyPlant extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Plant Moisture Detector',
-      home: const HomeScreen(),
+    return const MaterialApp(
+      home: WelcomePageView(),
     );
   }
 }
