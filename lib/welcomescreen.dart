@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happyplant/color.dart';
 import 'package:happyplant/home_screen.dart';
 
@@ -32,9 +33,9 @@ class _WelcomePageViewState extends State<WelcomePageView> {
           controller: _controller,
           children: [
             WelcomeScreen(
-                title: 'Welcome to Plant Care!',
+                title: 'Welcome to Happy Plant!',
                 text:
-                    'This app helps you monitor and maintain the health of your plants.',
+                    'Happy Plant help you to monitor and maintain the health of your plants.',
                 showNextButton: true,
                 nextButton: () {
                   _controller.nextPage(
@@ -84,26 +85,39 @@ class WelcomeScreen extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-              fontSize: 24.0, color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontSize: 16.sp,
+              color: Colors.white,
+              fontWeight: FontWeight.w400),
         ),
-        const SizedBox(height: 20.0),
+        SizedBox(height: 20.h),
         Text(
           text,
-          style: const TextStyle(
-              fontSize: 24.0, color: Colors.white, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 16.sp,
+              color: Colors.white,
+              fontWeight: FontWeight.w400),
         ),
-        const SizedBox(height: 30.0),
+        SizedBox(height: 30.h),
         if (hasButton)
           ElevatedButton(
             onPressed: getStartedButton,
-            child: const Text('Start'),
+            child: Text('Start',
+                style: TextStyle(
+                  fontSize: 9.sp,
+                  fontWeight: FontWeight.w600,
+                  color: darkGreen,
+                )),
           ),
         if (showNextButton)
           FloatingActionButton(
             onPressed: nextButton,
-            focusColor: darkGreen,
-            child: const Icon(Icons.arrow_forward_ios),
+            hoverColor: darkGreen,
+            child: Icon(
+              Icons.arrow_forward_ios,
+              size: 10.w,
+            ),
           ),
       ],
     );

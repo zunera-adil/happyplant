@@ -1,35 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'color.dart';
-
-// class HomeScreen extends StatelessWidget {
-//   const HomeScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(
-//         //padding: EdgeInsets.symmetric(horizontal: 18.0.w),
-//         decoration: BoxDecoration(
-//           gradient: kBackgroundGradient,
-//         ),
-//         child:const Column(
-//           children: [
-//             Center(
-//               child: Text(
-//                 "Plant Moisture Status",
-//                 style: TextStyle(
-//                  // fontSize: 10.sp,
-//                   fontWeight: FontWeight.bold,
-//                 ),
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happyplant/color.dart';
@@ -61,8 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // bool isHappy = _moistureLevel > 50.0;
-    // String imagePath = isHappy ? 'assets/happy_plant.png' : 'assets/sad_plant.png';
+    bool isHappy = _moistureLevel > 50.0;
+    String imagePath =
+        isHappy ? 'asset/images/happyplant.png' : 'asset/images/sadplant.jpg';
 
     return Scaffold(
       body: Container(
@@ -74,11 +43,11 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 20.h),
+            // SizedBox(height: 20.h),
             Text(
               'Is My Plant Happy?',
               style: TextStyle(
-                fontSize: 40.sp,
+                fontSize: 30.sp,
                 color: kShadowBlackColor,
                 fontWeight: FontWeight.bold,
               ),
@@ -89,35 +58,33 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
-                  color: lightGreen), // Adjust font size dynamically
+                  color: darkGreen),
             ),
-            SizedBox(height: 15.h), // Adjust spacing dynamically
+            SizedBox(height: 5.h),
             Text(
               '${_moistureLevel.toStringAsFixed(2)}%',
               style: TextStyle(
-                  fontSize: 40.sp,
+                  fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
                   color: darkGreen), // Adjust font size dynamically
             ),
-            SizedBox(height: 15.h),
-            Container(
-              width: 200.w,
-              height: 100.h,
-              color: Colors.red, // Set container color
-            ),
-            SizedBox(height: 15.h),
-
-            // Image.asset(
-            //   imagePath,
-            //   height: blockSizeVertical * 30, // Adjust image size dynamically
+            //SizedBox(height: 15.h),
+            // Container(
+            //   width: 200.w,
+            //   height: 100.h,
+            //   color: Colors.red, // Set container color
             // ),
-            // SizedBox(height: blockSizeVertical * 4),
+            // SizedBox(height: 15.h),
 
+            Image.asset(imagePath,
+                height: 160.h, width: 70.w // Adjust image size dynamically
+                ),
+            SizedBox(height: 20.h),
             CustomPrimaryButton(
               onTap: _refreshMoistureLevel,
               text: 'Refresh',
-              height: 10.h,
-              width: 30.w,
+              height: 40.h,
+              width: 70.w,
             )
           ],
         ),

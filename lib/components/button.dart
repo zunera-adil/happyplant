@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happyplant/color.dart';
 
 class CustomPrimaryButton extends StatelessWidget {
@@ -17,7 +18,6 @@ class CustomPrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -25,12 +25,15 @@ class CustomPrimaryButton extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           gradient: kPrimaryButtonGradient,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(14.r),
         ),
         child: Center(
           child: Text(
             text,
-            style: theme.textTheme.labelSmall?.copyWith(
+            style: TextStyle(
+              fontSize: 9.sp,
+              //fontWeight: FontWeight.bold,
+              color: darkGreen,
               shadows: [
                 Shadow(
                   color: kShadowBlackColor.withOpacity(0.3),
