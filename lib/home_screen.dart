@@ -31,6 +31,7 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happyplant/color.dart';
 import 'package:happyplant/components/button.dart';
 
@@ -60,63 +61,51 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final blockSizeHorizontal = screenWidth / 100;
-    final blockSizeVertical = screenHeight / 100;
-
     // bool isHappy = _moistureLevel > 50.0;
     // String imagePath = isHappy ? 'assets/happy_plant.png' : 'assets/sad_plant.png';
 
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Padding(
-      //     padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      //     child: Text('Plant Moisture Detector',
-      //         style: TextStyle(
-      //           fontSize: blockSizeHorizontal * 5.5,
-      //           color: Colors.green,
-      //           fontWeight: FontWeight.bold,
-      //         )),
-      //   ),
-      // ),
       body: Container(
-        padding: EdgeInsets.all(blockSizeHorizontal * 4),
-        decoration: BoxDecoration(
-          gradient: kBackgroundGradient,
-        ),
+        padding: EdgeInsets.all(20.w),
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('asset/images/homescreenbg.jpg'),
+                fit: BoxFit.cover)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            SizedBox(height: 20.h),
             Text(
-              'Plant Moisture Detector',
+              'Is My Plant Happy?',
               style: TextStyle(
-                  fontSize: blockSizeHorizontal * 6,
-                  color: Colors.white), // Adjust font size dynamically
+                fontSize: 40.sp,
+                color: kShadowBlackColor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            SizedBox(height: blockSizeVertical * 2),
+            SizedBox(height: 15.h),
             Text(
               'Current Moisture Level:',
               style: TextStyle(
-                  fontSize: blockSizeHorizontal * 6,
-                  color: Colors.white), // Adjust font size dynamically
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.bold,
+                  color: lightGreen), // Adjust font size dynamically
             ),
-            SizedBox(
-                height: blockSizeVertical * 2), // Adjust spacing dynamically
+            SizedBox(height: 15.h), // Adjust spacing dynamically
             Text(
               '${_moistureLevel.toStringAsFixed(2)}%',
               style: TextStyle(
-                  fontSize: blockSizeHorizontal * 12,
+                  fontSize: 40.sp,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white), // Adjust font size dynamically
+                  color: darkGreen), // Adjust font size dynamically
             ),
-            SizedBox(height: blockSizeVertical * 2),
+            SizedBox(height: 15.h),
             Container(
-              width: 200,
-              height: 100,
+              width: 200.w,
+              height: 100.h,
               color: Colors.red, // Set container color
             ),
-            SizedBox(height: blockSizeVertical * 2),
+            SizedBox(height: 15.h),
 
             // Image.asset(
             //   imagePath,
@@ -127,8 +116,8 @@ class _HomeScreenState extends State<HomeScreen> {
             CustomPrimaryButton(
               onTap: _refreshMoistureLevel,
               text: 'Refresh',
-              height: 10,
-              width: 30,
+              height: 10.h,
+              width: 30.w,
             )
           ],
         ),

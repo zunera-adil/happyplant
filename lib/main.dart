@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happyplant/welcomescreen.dart';
 
 void main() {
@@ -10,8 +11,11 @@ class HappyPlant extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: WelcomePageView(),
+    return const ScreenUtilInit(
+      designSize: Size(390, 844),
+      child: MaterialApp(
+        home: WelcomePageView(),
+      ),
     );
   }
 }
