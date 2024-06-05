@@ -83,40 +83,64 @@ class WelcomeScreen extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          title,
-          style: TextStyle(
-              fontSize: 16.sp,
-              color: Colors.white,
-              fontWeight: FontWeight.w400),
+        Container(
+          //padding: EdgeInsets.symmetric(horizontal: 10.w),
+          height: 300.h,
+          width: 190.w,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(9.r),
+            color: kShadowBlackColor.withAlpha(4),
+            border: Border.all(
+              width: 1.w,
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600),
+              ),
+              SizedBox(height: 20.h),
+              Text(
+                text,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
+
         ),
-        SizedBox(height: 20.h),
-        Text(
-          text,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 16.sp,
-              color: Colors.white,
-              fontWeight: FontWeight.w400),
-        ),
+
         SizedBox(height: 30.h),
         if (hasButton)
           ElevatedButton(
             onPressed: getStartedButton,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: lightGreen,
+            ),
             child: Text('Start',
                 style: TextStyle(
-                  fontSize: 9.sp,
-                  fontWeight: FontWeight.w600,
-                  color: darkGreen,
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w800,
+                  color: kShadowBlackColor,
                 )),
           ),
         if (showNextButton)
           FloatingActionButton(
             onPressed: nextButton,
-            hoverColor: darkGreen,
+            //hoverColor: lightGreen,
+            backgroundColor: lightGreen,
             child: Icon(
               Icons.arrow_forward_ios,
-              size: 10.w,
+              color: kShadowBlackColor,
+              size: 12.w,
             ),
           ),
       ],

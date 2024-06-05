@@ -33,7 +33,7 @@ class CustomPrimaryButton extends StatelessWidget {
             style: TextStyle(
               fontSize: 9.sp,
               //fontWeight: FontWeight.bold,
-              color: darkGreen,
+              color: kShadowBlackColor,
               shadows: [
                 Shadow(
                   color: kShadowBlackColor.withOpacity(0.3),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:happyplant/add_plant_screen.dart';
 import 'package:happyplant/color.dart';
 import 'package:happyplant/components/button.dart';
 
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(20.w),
+        padding: EdgeInsets.all(5.w),
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('asset/images/homescreenbg.jpg'),
@@ -47,28 +48,46 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               'Is My Plant Happy?',
               style: TextStyle(
-                fontSize: 30.sp,
+                fontSize: 18.sp,
                 color: kShadowBlackColor,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w800,
               ),
             ),
             SizedBox(height: 15.h),
-            Text(
-              'Current Moisture Level:',
-              style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: darkGreen),
+            Container(
+              width: double.infinity,
+              height: 200.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(9.r),
+                color: darkGreen.withOpacity(0.5),
+                border: Border.all(
+                  color: kShadowBlackColor.withOpacity(0.1),
+                  width: 1.w,
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Current Moisture Level:',
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                        color: kShadowBlackColor),
+                  ),
+                  SizedBox(height: 5.h),
+                  Text(
+                    '${_moistureLevel.toStringAsFixed(2)}%',
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                        color: kShadowBlackColor), // Adjust font size dynamically
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 5.h),
-            Text(
-              '${_moistureLevel.toStringAsFixed(2)}%',
-              style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: darkGreen), // Adjust font size dynamically
-            ),
-            //SizedBox(height: 15.h),
+
+            SizedBox(height: 15.h),
             // Container(
             //   width: 200.w,
             //   height: 100.h,
@@ -76,15 +95,55 @@ class _HomeScreenState extends State<HomeScreen> {
             // ),
             // SizedBox(height: 15.h),
 
-            Image.asset(imagePath,
-                height: 160.h, width: 70.w // Adjust image size dynamically
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Plant name: \n rose',
+                  style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w600,
+                      color: kShadowBlackColor.withOpacity(0.8)),
                 ),
-            SizedBox(height: 20.h),
+                SizedBox(
+                  width: 5.w,
+                ),
+                Container(
+                  width: 90.w,
+                  height: 200.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.r),
+                    border: Border.all(
+                      color: kShadowBlackColor.withOpacity(0.5),
+                      width: 1.w,
+                    ),
+                  ),
+                  child:  Image.asset(imagePath,
+                         // height: 160.h, width: 70.w
+                       fit: BoxFit.fill,
+                          ),
+                  ),
+              ],
+            ),
+            SizedBox(height: 10.h),
             CustomPrimaryButton(
               onTap: _refreshMoistureLevel,
               text: 'Refresh',
               height: 40.h,
               width: 70.w,
+            ),
+            SizedBox(height: 10.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              //crossAxisAlignment: CrossAxisAlignment.end ,
+              children: [
+                FloatingActionButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> AddPlantScreen()));
+                },
+                child:  Icon(Icons.add,),
+                  backgroundColor: darkGreen.withOpacity(0.5),
+                ),
+              ],
             )
           ],
         ),
