@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 90.w,
                   height: 200.h,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.r),
+                    borderRadius: BorderRadius.circular(5.r),
                     border: Border.all(
                       color: kShadowBlackColor.withOpacity(0.5),
                       width: 1.w,
@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
               ],
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 15.h),
             CustomPrimaryButton(
               onTap: _refreshMoistureLevel,
               text: 'Refresh',
