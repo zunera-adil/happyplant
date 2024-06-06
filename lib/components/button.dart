@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:happyplant/color.dart';
+import 'package:happyplant/utils/color.dart';
 
 class CustomPrimaryButton extends StatelessWidget {
   final VoidCallback onTap;

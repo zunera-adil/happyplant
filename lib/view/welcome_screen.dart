@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:happyplant/color.dart';
-import 'package:happyplant/home_screen.dart';
+import 'package:happyplant/utils/color.dart';
+import 'package:happyplant/view/home_screen.dart';
 
 class WelcomePageView extends StatefulWidget {
   const WelcomePageView({super.key});
@@ -25,7 +25,7 @@ class _WelcomePageViewState extends State<WelcomePageView> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('asset/images/welcomescreenbg.jpg'),
+            image: AssetImage('asset/images/welcome_screenbg.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -89,7 +89,7 @@ class WelcomeScreen extends StatelessWidget {
           width: 190.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(9.r),
-            color: kShadowBlackColor.withAlpha(4),
+            color: darkGreen.withOpacity(0.2),
             border: Border.all(
               width: 1.w,
             ),
